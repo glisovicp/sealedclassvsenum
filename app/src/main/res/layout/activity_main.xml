@@ -7,12 +7,72 @@
     tools:context=".activity.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvServerUrlSealed"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_30"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:contentDescription="@string/description_tvServerUrlTitle"
+        android:text="@string/serverUrl_title_sealed"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/spinnerServerUrlSealed"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvServerUrlSealed"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/bg_dropdown"
+        android:spinnerMode="dropdown"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvServerUrlEnum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerServerUrlSealed"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_30"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:contentDescription="@string/description_tvServerUrlTitle"
+        android:text="@string/serverUrl_title_enum"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/spinnerServerUrlEnum"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvServerUrlEnum"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/bg_dropdown"
+        android:spinnerMode="dropdown"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvAppVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/app_version_label"
+        android:textSize="16sp"
+        android:layout_margin="@dimen/margin_16"
+        android:contentDescription="@string/description_tvTokenTitle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

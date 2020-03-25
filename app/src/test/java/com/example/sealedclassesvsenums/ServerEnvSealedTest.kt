@@ -9,11 +9,11 @@ import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class ServerEnvTest {
+class ServerEnvSealedTest {
 
-    val TAG = ServerEnvTest::class.java.simpleName
+    val TAG = ServerEnvSealedTest::class.java.simpleName
 
-    lateinit var environmentSUT: ServerEnv
+    lateinit var environmentSUT: ServerEnvSealed
 
     @Before
     fun setUp() {

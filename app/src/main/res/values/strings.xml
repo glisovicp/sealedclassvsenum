@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sealed Classes VS Enums</string>
+
+    <string name="description_tvTokenTitle">Token label</string>
+    <string name="description_tvServerUrlTitle">Server url label</string>
+    <string name="serverUrl_title_sealed">Server url:(Sealed classes)</string>
+    <string name="serverUrl_title_enum">Server url:(Enums)</string>
+
+    <string name="app_version_label">v%1$s</string>
 </resources>
