@@ -7,7 +7,9 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sealedclassesvsenums.R
-import com.example.sealedclassesvsenums.adapter.ServerDropDownAdapter
+import com.example.sealedclassesvsenums.ServerEnvEnum
+import com.example.sealedclassesvsenums.adapter.ServerDropDownAdapterEnum
+import com.example.sealedclassesvsenums.adapter.ServerDropDownAdapterSealed
 import com.example.sealedclassesvsenums.util.AppUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,21 +18,26 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     val TAG = MainActivity::class.java.simpleName
 
     private var selectedServerSealed: ServerEnvSealed = Production()
-    private var serversSealed: ArrayList<ServerEnvSealed>? = null
+    private var serversSealed = ServerEnvSealed.servers()
+    private var adapterSealed: ServerDropDownAdapterSealed? = null
 
-    private var adapter: ServerDropDownAdapter? = null
+    private var selectedServerEnum: ServerEnvEnum = ServerEnvEnum.Production
+    private var serversEnum = arrayListOf(ServerEnvEnum.Development, ServerEnvEnum.QA, ServerEnvEnum.Acceptance, ServerEnvEnum.Production)
+    private var adapterEnum: ServerDropDownAdapterEnum? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        serversSealed = ServerEnvSealed.servers()
-        adapter = ServerDropDownAdapter(this, serversSealed!!)
-        spinnerServerUrlSealed.adapter = adapter
-        spinnerServerUrlSealed.onItemSelectedListener = this
-
         tvAppVersion.text = getString(R.string.app_version_label, AppUtils.getApplicationVersion())
 
+        adapterSealed = ServerDropDownAdapterSealed(this, serversSealed)
+        spinnerServerUrlSealed.adapter = adapterSealed
+        spinnerServerUrlSealed.onItemSelectedListener = this
+
+        adapterEnum = ServerDropDownAdapterEnum(this, serversEnum)
+        spinnerServerUrlEnum.adapter = adapterEnum
+        spinnerServerUrlEnum.onItemSelectedListener = this
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -38,8 +45,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        selectedServerSealed = serversSealed?.get(position) as ServerEnvSealed
-        Toast.makeText(this, "It is choosen: ${selectedServerSealed.name}", Toast.LENGTH_LONG).show()
+        selectedServerSealed = serversSealed[position]
+        selectedServerEnum = serversEnum[position]
+        var message = ""
+        when(parent?.tag) {
+            "sealed" -> message = "Choosen sealed class is : ${selectedServerSealed.name} and url is ${selectedServerSealed.url}"
+            "enum" -> message = "Choosen enum is : ${selectedServerEnum.name} and url is ${selectedServerEnum.url}"
+        }
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
 

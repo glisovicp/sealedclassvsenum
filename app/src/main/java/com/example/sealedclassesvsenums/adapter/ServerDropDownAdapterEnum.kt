@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.sealedclassesvsenums.R
-import com.example.sealedclassesvsenums.activity.ServerEnvSealed
+import com.example.sealedclassesvsenums.ServerEnvEnum
 
-class ServerDropDownAdapter(private val context: Context, var list: ArrayList<ServerEnvSealed>) : BaseAdapter() {
+class ServerDropDownAdapterEnum(private val context: Context, var list: ArrayList<ServerEnvEnum>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View
@@ -24,7 +24,7 @@ class ServerDropDownAdapter(private val context: Context, var list: ArrayList<Se
             holder = convertView.tag as ItemRowHolder
         }
 
-        val item: ServerEnvSealed = list[position]
+        val item: ServerEnvEnum = list[position]
         holder.tvTitle.text = item.name
 
         return view

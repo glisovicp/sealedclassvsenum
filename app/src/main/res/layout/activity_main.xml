@@ -32,7 +32,8 @@
         android:layout_margin="@dimen/margin_16"
         android:background="@drawable/bg_dropdown"
         android:spinnerMode="dropdown"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:tag="sealed"/>
 
     <TextView
         android:id="@+id/tvServerUrlEnum"
@@ -60,7 +61,8 @@
         android:layout_margin="@dimen/margin_16"
         android:background="@drawable/bg_dropdown"
         android:spinnerMode="dropdown"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:tag="enum"/>
 
     <TextView
         android:id="@+id/tvAppVersion"

@@ -44,7 +44,7 @@ class Development: ServerEnvSealed() {
  * Test server API.
  */
 class QA: ServerEnvSealed() {
-    override val url = "https://api-test.server.com/graphql"
+    override val url = "https://api-qa.server.com/graphql"
 }
 
 /**

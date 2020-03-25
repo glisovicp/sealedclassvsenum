@@ -2,7 +2,7 @@ package com.example.sealedclassesvsenums
 
 import com.example.sealedclassesvsenums.activity.*
 import org.junit.After
-import org.junit.Assert.assertEquals
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +13,7 @@ class ServerEnvSealedTest {
 
     val TAG = ServerEnvSealedTest::class.java.simpleName
 
-    lateinit var environmentSUT: ServerEnvSealed
+    lateinit var serverEnvSealedSUT: ServerEnvSealed
 
     @Before
     fun setUp() {
@@ -25,29 +25,41 @@ class ServerEnvSealedTest {
 
     @Test
     fun `Environment is Development and name is Development and index is 0`() {
-        environmentSUT = Development()
-        assertEquals("Development", environmentSUT.name)
-        assertEquals(0, environmentSUT.index)
+        serverEnvSealedSUT = Development()
+        assertEquals("Development", serverEnvSealedSUT.name)
+        assertEquals(0, serverEnvSealedSUT.index)
+        assertEquals("https://api-dev.server.com/graphql", serverEnvSealedSUT.url)
     }
 
     @Test
     fun `Environment is QA and name is QA and index is 1`() {
-        environmentSUT = QA()
-        assertEquals("QA", environmentSUT.name)
-        assertEquals(1, environmentSUT.index)
+        serverEnvSealedSUT = QA()
+        assertEquals("QA", serverEnvSealedSUT.name)
+        assertEquals(1, serverEnvSealedSUT.index)
+        assertEquals("https://api-qa.server.com/graphql", serverEnvSealedSUT.url)
     }
 
     @Test
     fun `Environment is Acceptance and name is Acceptance and index is 2`() {
-        environmentSUT = Acceptance()
-        assertEquals("Acceptance", environmentSUT.name)
-        assertEquals(2, environmentSUT.index)
+        serverEnvSealedSUT = Acceptance()
+        assertEquals("Acceptance", serverEnvSealedSUT.name)
+        assertEquals(2, serverEnvSealedSUT.index)
+        assertEquals("https://api-acc.server.com/graphql", serverEnvSealedSUT.url)
     }
 
     @Test
     fun `Environment is Production and name is Production and index is 3`() {
-        environmentSUT = Production()
-        assertEquals("Production", environmentSUT.name)
-        assertEquals(3, environmentSUT.index)
+        serverEnvSealedSUT = Production()
+        assertEquals("Production", serverEnvSealedSUT.name)
+        assertEquals(3, serverEnvSealedSUT.index)
+        assertEquals("https://api.server.com/graphql", serverEnvSealedSUT.url)
+    }
+
+    @Test
+    fun `servers array is not empty`() {
+        val servers = ServerEnvSealed.servers()
+
+        assertNotNull(servers)
+        assertTrue(servers.count() == 4)
     }
 }
