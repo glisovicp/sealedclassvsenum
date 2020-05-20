@@ -10,9 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ServerEnvEnumTest {
 
-    val TAG = ServerEnvEnumTest::class.java.simpleName
-
-    lateinit var serverEnvEnumSUT: ServerEnvEnum
+    private lateinit var serverEnvEnumSUT: ServerEnvEnum
 
     @Before
     fun setUp() {

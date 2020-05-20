@@ -1,6 +1,5 @@
 package com.example.sealedclassesvsenums
 
-import com.example.sealedclassesvsenums.activity.*
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -11,9 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ServerEnvSealedTest {
 
-    val TAG = ServerEnvSealedTest::class.java.simpleName
-
-    lateinit var serverEnvSealedSUT: ServerEnvSealed
+    private lateinit var serverEnvSealedSUT: ServerEnvSealed
 
     @Before
     fun setUp() {

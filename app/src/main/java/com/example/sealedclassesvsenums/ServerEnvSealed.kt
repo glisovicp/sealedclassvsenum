@@ -1,4 +1,4 @@
-package com.example.sealedclassesvsenums.activity
+package com.example.sealedclassesvsenums
 
 /**
  * Declaring ServerEnvSealed class as sealed class means,

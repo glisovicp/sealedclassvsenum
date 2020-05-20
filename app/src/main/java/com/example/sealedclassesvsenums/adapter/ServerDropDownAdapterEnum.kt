@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.example.sealedclassesvsenums.R
 import com.example.sealedclassesvsenums.ServerEnvEnum
 
-class ServerDropDownAdapterEnum(private val context: Context, var list: ArrayList<ServerEnvEnum>) : BaseAdapter() {
+class ServerDropDownAdapterEnum(private val context: Context, private var list: ArrayList<ServerEnvEnum>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View
@@ -42,7 +42,7 @@ class ServerDropDownAdapterEnum(private val context: Context, var list: ArrayLis
         return list.size
     }
 
-    private class ItemRowHolder(val view: View) {
+    private class ItemRowHolder(view: View) {
         val tvTitle: TextView = view.findViewById(R.id.tvDropDownTitle)
     }
 }

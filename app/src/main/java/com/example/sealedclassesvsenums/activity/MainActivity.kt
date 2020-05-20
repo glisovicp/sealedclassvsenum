@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sealedclassesvsenums.Production
 import com.example.sealedclassesvsenums.R
 import com.example.sealedclassesvsenums.ServerEnvEnum
+import com.example.sealedclassesvsenums.ServerEnvSealed
 import com.example.sealedclassesvsenums.adapter.ServerDropDownAdapterEnum
 import com.example.sealedclassesvsenums.adapter.ServerDropDownAdapterSealed
 import com.example.sealedclassesvsenums.util.AppUtils
@@ -15,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    val TAG = MainActivity::class.java.simpleName
+    private val tag = MainActivity::class.java.simpleName
 
     private var selectedServerSealed: ServerEnvSealed = Production()
     private var serversSealed = ServerEnvSealed.servers()
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        Log.d(TAG, "Nothing selected!")
+        Log.d(tag, "Nothing selected!")
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -49,11 +51,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         selectedServerEnum = serversEnum[position]
         var message = ""
         when(parent?.tag) {
-            "sealed" -> message = "Choosen sealed class is : ${selectedServerSealed.name} and url is ${selectedServerSealed.url}"
-            "enum" -> message = "Choosen enum is : ${selectedServerEnum.name} and url is ${selectedServerEnum.url}"
+            "sealed" -> message = "Chosen sealed class is : ${selectedServerSealed.name} and url is ${selectedServerSealed.url}"
+            "enum" -> message = "Chosen enum is : ${selectedServerEnum.name} and url is ${selectedServerEnum.url}"
         }
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
-
-
 }

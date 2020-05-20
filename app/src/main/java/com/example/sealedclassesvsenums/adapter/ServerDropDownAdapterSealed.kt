@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.sealedclassesvsenums.R
-import com.example.sealedclassesvsenums.activity.ServerEnvSealed
+import com.example.sealedclassesvsenums.ServerEnvSealed
 
-class ServerDropDownAdapterSealed(private val context: Context, var list: ArrayList<ServerEnvSealed>) : BaseAdapter() {
+class ServerDropDownAdapterSealed(private val context: Context, private var list: ArrayList<ServerEnvSealed>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View
@@ -42,7 +42,7 @@ class ServerDropDownAdapterSealed(private val context: Context, var list: ArrayL
         return list.size
     }
 
-    private class ItemRowHolder(val view: View) {
+    private class ItemRowHolder(view: View) {
         val tvTitle: TextView = view.findViewById(R.id.tvDropDownTitle)
     }
 }
